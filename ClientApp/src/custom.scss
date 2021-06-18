@@ -8,5 +8,93 @@ html {
 
 body {
   margin: 0;
+  background: url(https://golfsupport.com/blog/wp-content/uploads/2017/02/golf-grass-green-riot-2.jpg);
+  background-size: 320%;
+  background-position: 30% 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: whitesmoke;
+}
+
+header {
+  min-height: 60%;
+  background-color: transparent;
+  background-color: rgb(245, 245, 240);
+  color: black;
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.main-sign {
+  margin: 0;
   min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.836);
+  color: rgb(4, 12, 0);
+  padding: 1rem;
+  margin: 1rem;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(146, 146, 146);
+}
+
+.main-home {
+  margin: 0;
+  min-height: 100%;
+  background-color: rgba(255, 255, 255, 0.836);
+  color: rgb(4, 12, 0);
+  padding: 1rem;
+  margin: 1rem;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(146, 146, 146);
+}
+
+.menu {
+  text-decoration: none;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  min-height: 100%;
+}
+
+h2 {
+  background: url(https://golfsupport.com/blog/wp-content/uploads/2017/02/golf-grass-green-riot-2.jpg);
+  background-size: 100%;
+  background-position: 20% 20%;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0.08);
+}
+
+.sign-up {
+  border-top: solid;
+  border-width: 1px;
+  border-color: rgb(146, 146, 146);
+  padding-top: 1rem;
+}
+
+.Golfpic {
+  display: flex;
+  align-items: center;
+}
+
+// a:link {
+//   color: purple;
+// }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: solid;
+  border-width: 1px;
+  border-color: rgb(146, 146, 146);
+  backdrop-filter: blur(7px);
 }

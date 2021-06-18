@@ -1,8 +1,8 @@
 import React from 'react'
+import { Home } from './pages/Home'
+
 import './custom.scss'
 
 export function App() {
-  return (
-    <div className="d-flex justify-content-center display-2">Hello, World!</div>
-  )
+  return <Home />
 }
