@@ -11,7 +11,7 @@ export function SignUp() {
           </ul>
           <nav>
             <a href="/">
-              <i className="menu"></i> Home | Golf Courses | Scores
+              <i className="menu"></i> Home | Golf Courses | About
             </a>
             <p>Welcome back, username!</p>
           </nav>

@@ -12,7 +12,7 @@ export function Home() {
           </ul>
           <nav>
             <a href="/">
-              <i className="fa fa-plus"></i> Home | Golf Courses | Scores
+              <i className="fa fa-plus"></i> Home | Golf Courses | About
             </a>
             <p>Welcome back, Bob!</p>
           </nav>
