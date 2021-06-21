@@ -18,6 +18,9 @@ export function GolfCourses() {
     loadGolfCourses()
   }, [])
 
+  // const matchingGolfCourses = GolfCourses.filter((GolfCourse) =>
+  //   GolfCourse.name.includes(filter)
+  // )
   return (
     <>
       <body>
@@ -33,6 +36,9 @@ export function GolfCourses() {
           </nav>
         </header>
         <main className="main-home">
+          <form>
+            <input type="text" placeholder="Search.." />
+          </form>
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li>
@@ -46,13 +52,7 @@ export function GolfCourses() {
                   />
                 </section>
                 <div className="home-info">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Pariatur, a? Voluptatibus quibusdam ratione ex minima
-                    corporis fugiat accusamus, atque, magni laboriosam voluptate
-                    molestiae expedita, reprehenderit perferendis! Fuga
-                    aspernatur aut minus.
-                  </p>
+                  <p>{GolfCourse.description}</p>
                   <p>Address: {GolfCourse.address}</p>
                 </div>
               </li>

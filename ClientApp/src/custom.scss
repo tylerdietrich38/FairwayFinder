@@ -51,6 +51,12 @@ header {
   border-color: rgb(146, 146, 146);
 }
 
+.home-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .menu {
   text-decoration: none;
 }
@@ -83,6 +89,10 @@ h2 {
 .Golfpic {
   display: flex;
   align-items: center;
+}
+
+ul {
+  list-style-type: none;
 }
 
 // a:link {
