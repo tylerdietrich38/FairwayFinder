@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 
-export function GolfCourses() {
+export function GolfCourse() {
   // const [GolfCourses, setGolfCourses] = useState([])
   return (
     <>
@@ -20,7 +20,7 @@ export function GolfCourses() {
         </header>
         <main className="main-home">
           <ul className="Courses">
-            {GolfCourses.map((GolfCourse) => (
+            {/* {GolfCourses.map((GolfCourse) => (
               <li>
                 <h4>{GolfCourse.name}</h4>
                 <section className="Golfpic">
@@ -42,7 +42,7 @@ export function GolfCourses() {
                   <p>{GolfCourse.address}</p>
                 </div>
               </li>
-            ))}
+            ))} */}
           </ul>
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>

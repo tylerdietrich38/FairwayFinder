@@ -3,28 +3,28 @@ import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function GolfCourses() {
-  const [GolfCourses, setGolfCourses] = useState([])
+  // const [GolfCourses, setGolfCourses] = useState([])
 
-  useEffect(function () {
-    async function loadGolfCourses() {
-      const response = await fetch('/api/GolfCourses')
+  // useEffect(function () {
+  //   async function loadGolfCourses() {
+  //     const response = await fetch('/api/GolfCourses')
 
-      if (response.ok) {
-        const json = await response.json()
+  //     if (response.ok) {
+  //       const json = await response.json()
 
-        setGolfCourses(json)
-      }
-    }
-    loadGolfCourses()
-  }, [])
+  //       setGolfCourses(json)
+  //     }
+  //   }
+  //   loadGolfCourses()
+  // }, [])
 
   return (
     <>
       <body>
         <header>
-          <ul className="logo">
+          <section className="logo">
             <img src={logo} alt="Logo" />
-          </ul>
+          </section>
           <nav>
             <a href="/">
               <i className="fa fa-plus"></i> Home | Golf Courses | About
