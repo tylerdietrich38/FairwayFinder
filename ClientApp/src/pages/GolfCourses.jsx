@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function GolfCourses() {
-  // const [GolfCourses, setGolfCourses] = useState([])
+  const [GolfCourses, setGolfCourses] = useState([])
 
-  // useEffect(function () {
-  //   async function loadGolfCourses() {
-  //     const response = await fetch('/api/GolfCourses')
+  useEffect(function () {
+    async function loadGolfCourses() {
+      const response = await fetch('/api/GolfCourses')
 
-  //     if (response.ok) {
-  //       const json = await response.json()
+      if (response.ok) {
+        const json = await response.json()
 
-  //       setGolfCourses(json)
-  //     }
-  //   }
-  //   loadGolfCourses()
-  // }, [])
+        setGolfCourses(json)
+      }
+    }
+    loadGolfCourses()
+  }, [])
 
   return (
     <>
@@ -33,7 +33,7 @@ export function GolfCourses() {
           </nav>
         </header>
         <main className="main-home">
-          <ul className="Courses">
+          <ul>
             {GolfCourses.map((GolfCourse) => (
               <li>
                 <h4>{GolfCourse.name}</h4>
@@ -53,7 +53,7 @@ export function GolfCourses() {
                     molestiae expedita, reprehenderit perferendis! Fuga
                     aspernatur aut minus.
                   </p>
-                  <p>{GolfCourse.address}</p>
+                  <p>Address: {GolfCourse.address}</p>
                 </div>
               </li>
             ))}
