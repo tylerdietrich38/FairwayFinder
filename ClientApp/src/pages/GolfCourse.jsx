@@ -3,7 +3,7 @@ import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function GolfCourses() {
-  const [GolfCourses, setGolfCourses] = useState([])
+  // const [GolfCourses, setGolfCourses] = useState([])
   return (
     <>
       <body>

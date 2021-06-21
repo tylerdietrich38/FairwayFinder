@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../Images/Logo.png'
-import GolfCourse from '../Images/GolfCourse.jpg'
+import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function Home() {
   return (
@@ -20,7 +20,7 @@ export function Home() {
         <main className="main-home">
           <h2>Golf Courses near you!</h2>
           <ul className="Golfpic">
-            <img src={GolfCourse} alt="Golf Course" height="140" width="230" />
+            <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
           </ul>
           <div className="home-info">
             <p>
@@ -31,7 +31,7 @@ export function Home() {
             </p>
           </div>
           <ul className="Golfpic">
-            <img src={GolfCourse} alt="Golf Course" height="140" width="230" />
+            <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
           </ul>
           <div className="home-info">
             <p>
