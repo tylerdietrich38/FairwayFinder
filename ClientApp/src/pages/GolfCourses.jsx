@@ -4,6 +4,20 @@ import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function GolfCourses() {
   const [GolfCourses, setGolfCourses] = useState([])
+
+  useEffect(function () {
+    async function loadGolfCourses() {
+      const response = await fetch('/api/GolfCourses')
+
+      if (response.ok) {
+        const json = await response.json()
+
+        setGolfCourses(json)
+      }
+    }
+    loadGolfCourses()
+  }, [])
+
   return (
     <>
       <body>
