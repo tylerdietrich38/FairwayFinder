@@ -18,9 +18,11 @@ export function GolfCourses() {
     loadGolfCourses()
   }, [])
 
-  // const matchingGolfCourses = GolfCourses.filter((GolfCourse) =>
-  //   GolfCourse.name.includes(filter)
-  // )
+  const filter = 'r'
+
+  const matchingGolfCourses = GolfCourses.filter((GolfCourse) =>
+    GolfCourse.name.includes(filter)
+  )
   return (
     <>
       <body>
