@@ -4,19 +4,28 @@ import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function GolfCourses() {
   const [GolfCourses, setGolfCourses] = useState([])
+  const [filterText, setFilterText] = useState('')
 
-  useEffect(function () {
-    async function loadGolfCourses() {
-      const response = await fetch('/api/GolfCourses')
+  useEffect(
+    function () {
+      async function loadGolfCourses() {
+        const url =
+          filterText.length === 0
+            ? '/api/GolfCourses'
+            : `/api/GolfCourses?filter=${filterText}`
 
-      if (response.ok) {
-        const json = await response.json()
+        const response = await fetch(url)
 
-        setGolfCourses(json)
+        if (response.ok) {
+          const json = await response.json()
+
+          setGolfCourses(json)
+        }
       }
-    }
-    loadGolfCourses()
-  }, [])
+      loadGolfCourses()
+    },
+    [filterText]
+  )
 
   const filter = 'r'
 
@@ -39,11 +48,18 @@ export function GolfCourses() {
         </header>
         <main className="main-home">
           <form>
-            <input type="text" placeholder="Search.." />
+            <input
+              type="text"
+              placeholder="Search.."
+              value={filterText}
+              onChange={function (event) {
+                setFilterText(event.target.value)
+              }}
+            />
           </form>
           <ul>
             {GolfCourses.map((GolfCourse) => (
-              <li>
+              <li key={GolfCourse.id}>
                 <h4>{GolfCourse.name}</h4>
                 <section className="Golfpic">
                   <img
