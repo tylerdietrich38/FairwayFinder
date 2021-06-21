@@ -32,7 +32,7 @@ export function GolfCourses() {
             <p>Welcome back, Bob!</p>
           </nav>
         </header>
-        <main className="main-home">
+        <main className="main-sign">
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li>

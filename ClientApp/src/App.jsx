@@ -1,8 +1,8 @@
 import React from 'react'
-import { GolfCourses } from './pages/GolfCourses'
+import { NewCourse } from './pages/NewCourse'
 
 import './custom.scss'
 
 export function App() {
-  return <GolfCourses />
+  return <NewCourse />
 }

@@ -41,12 +41,12 @@ export function GolfCourses() {
           </section>
           <nav>
             <a href="/">
-              <i className="fa fa-plus"></i> Home | Golf Courses | About
+              <i className="home-header"></i> Home | Golf Courses | About
             </a>
             <p>Welcome back, Bob!</p>
           </nav>
         </header>
-        <main className="main-home">
+        <main className="main-sign">
           <form>
             <input
               type="text"
