@@ -13,10 +13,10 @@ export function NewCourse() {
             <a href="/">
               <i className="menu"></i> Home | Golf Courses | About
             </a>
-            <p>Welcome back, username!</p>
           </nav>
         </header>
         <main className="main-sign">
+          <h2>New Golf Course</h2>
           <form action="#">
             <p className="form-input">
               <label htmlFor="name">Name</label>

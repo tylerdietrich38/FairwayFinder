@@ -13,7 +13,6 @@ export function SignUp() {
             <a href="/">
               <i className="menu"></i> Home | Golf Courses | About
             </a>
-            <p>Welcome back, username!</p>
           </nav>
         </header>
         <main className="main-sign">

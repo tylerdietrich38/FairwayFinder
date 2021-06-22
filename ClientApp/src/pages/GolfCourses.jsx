@@ -43,24 +43,30 @@ export function GolfCourses() {
             <a href="/">
               <i className="home-header"></i> Home | Golf Courses | About
             </a>
-            <p>Welcome back, Bob!</p>
           </nav>
         </header>
         <main className="main-sign">
-          <form>
-            <input
-              type="text"
-              placeholder="Search.."
-              value={filterText}
-              onChange={function (event) {
-                setFilterText(event.target.value)
-              }}
-            />
-          </form>
+          <div className="grid-row">
+            <a href="/NewCourse">
+              <button>Add New Course</button>
+            </a>
+            <form>
+              <input
+                type="text"
+                placeholder="Search.."
+                value={filterText}
+                onChange={function (event) {
+                  setFilterText(event.target.value)
+                }}
+              />
+            </form>
+          </div>
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li key={GolfCourse.id}>
-                <h4>{GolfCourse.name}</h4>
+                <a href="/GolfCourse">
+                  <h4>{GolfCourse.name}</h4>
+                </a>
                 <section className="Golfpic">
                   <img
                     src={TacoCourse}
@@ -76,10 +82,12 @@ export function GolfCourses() {
               </li>
             ))}
           </ul>
+        </main>
+        <div className="container">
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>
           </footer>
-        </main>
+        </div>
       </body>
     </>
   )

@@ -29,14 +29,15 @@ export function GolfCourse() {
             <a href="/">
               <i className="fa fa-plus"></i> Home | Golf Courses | About
             </a>
-            <p>Welcome back, Bob!</p>
           </nav>
         </header>
         <main className="main-sign">
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li>
-                <h4>{GolfCourse.name}</h4>
+                <a href="/GolfCourse">
+                  <h4>{GolfCourse.name}</h4>
+                </a>
                 <section className="Golfpic">
                   <img
                     src={TacoCourse}
@@ -50,15 +51,19 @@ export function GolfCourse() {
 
                   <p>Address: {GolfCourse.address}</p>
 
+                  <p>{GolfCourse.website}</p>
+
                   {/* <p>{GolfCourse.website}</p> */}
                 </div>
               </li>
             ))}
           </ul>
+        </main>
+        <div className="container">
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>
           </footer>
-        </main>
+        </div>
       </body>
     </>
   )

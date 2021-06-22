@@ -14,7 +14,6 @@ export function Home() {
             <a href="/">
               <i className="home-header"></i> Home | Golf Courses | About
             </a>
-            <p>Welcome back, Bob!</p>
           </nav>
         </header>
         <main className="main-sign">
@@ -47,10 +46,12 @@ export function Home() {
               reprehenderit perferendis! Fuga aspernatur aut minus.
             </p>
           </div>
+        </main>
+        <div className="container">
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>
           </footer>
-        </main>
+        </div>
       </body>
     </>
   )
