@@ -34,7 +34,7 @@ namespace FairwayFinder.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("Telephone")
+                    b.Property<string>("Website")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

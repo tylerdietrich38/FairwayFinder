@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 
-export function GolfCourses() {
+export function GolfCourse() {
   const [GolfCourses, setGolfCourses] = useState([])
 
   useEffect(function () {
@@ -46,14 +46,11 @@ export function GolfCourses() {
                   />
                 </section>
                 <div className="home-info">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Pariatur, a? Voluptatibus quibusdam ratione ex minima
-                    corporis fugiat accusamus, atque, magni laboriosam voluptate
-                    molestiae expedita, reprehenderit perferendis! Fuga
-                    aspernatur aut minus.
-                  </p>
+                  <p>{GolfCourse.description}</p>
+
                   <p>Address: {GolfCourse.address}</p>
+
+                  {/* <p>{GolfCourse.website}</p> */}
                 </div>
               </li>
             ))}
