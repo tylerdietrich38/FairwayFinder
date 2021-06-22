@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 
 export function NewCourse() {
+  const [newCourse, setNewCourse] = useState({
+    name: 'string',
+    description: 'string',
+    address: 'string',
+    website: 'string',
+  })
+
+  function handleStringFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedCourse = { ...newCourse, [fieldName]: value }
+
+    setNewCourse(updatedCourse)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch('/api/GolfCourses', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newCourse),
+    })
+
+    if (response.ok) {
+      console.log('it worked')
+    }
+  }
+
   return (
     <>
       <body>
@@ -17,26 +47,44 @@ export function NewCourse() {
         </header>
         <main className="main-sign">
           <h2>New Golf Course</h2>
-          <form action="#">
+          <form onSubmit={handleFormSubmit}>
             <p className="form-input">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" />
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={newCourse.Name}
+                onChange={handleStringFieldChange}
+              />
             </p>
             <p className="form-input">
-              <label htmlFor="description">Description</label>
-              <textarea name="description"></textarea>
-              <span className="note">Brief description</span>
+              <label>Description</label>
+              <textarea
+                name="description"
+                value={newCourse.description}
+                onChange={handleStringFieldChange}
+              ></textarea>
+              <span>Brief description</span>
             </p>
             <p className="form-input">
-              <label htmlFor="name">Address</label>
-              <textarea name="address"></textarea>
+              <label>Address</label>
+              <textarea
+                name="address"
+                value={newCourse.address}
+                onChange={handleStringFieldChange}
+              ></textarea>
             </p>
             <p className="form-input">
-              <label htmlFor="name">Website</label>
-              <input type="tel" name="telephone" />
+              <label>Website</label>
+              <input
+                type="tel"
+                name="telephone"
+                value={newCourse.website}
+                onChange={handleStringFieldChange}
+              />
             </p>
             <p className="form-input">
-              <label htmlFor="picture">Picture</label>
+              <label>Picture</label>
               <input type="file" name="picture" />
             </p>
             <p>

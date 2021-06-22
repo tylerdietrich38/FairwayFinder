@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
+import { Link } from 'react-router-dom'
 
 export function GolfCourses() {
   const [GolfCourses, setGolfCourses] = useState([])
@@ -47,9 +48,9 @@ export function GolfCourses() {
         </header>
         <main className="main-sign">
           <div className="grid-row">
-            <a href="/NewCourse">
+            <Link to="/new">
               <button>Add New Course</button>
-            </a>
+            </Link>
             <form>
               <input
                 type="text"
