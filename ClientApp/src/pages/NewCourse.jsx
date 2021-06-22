@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 import { useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export function NewCourse() {
   const [newCourse, setNewCourse] = useState({
@@ -43,9 +44,15 @@ export function NewCourse() {
             <img src={logo} alt="Logo" />
           </ul>
           <nav>
-            <a href="/">
-              <i className="menu"></i> Home | Golf Courses | About
-            </a>
+            <div className="grid-row">
+              <Link to="/">
+                <li>Home</li>
+              </Link>
+              <li>|</li>
+              <Link to="/courses">
+                <li>Golf Courses</li>
+              </Link>
+            </div>
           </nav>
         </header>
         <main className="main-sign">

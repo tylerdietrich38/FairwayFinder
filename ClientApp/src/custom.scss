@@ -8,11 +8,12 @@ html {
 
 body {
   margin: 0;
-  // background: url(https://golfsupport.com/blog/wp-content/uploads/2017/02/golf-grass-green-riot-2.jpg);
-  // background-size: 320%;
-  // background-position: 30% 30%;
-  background: url(https://cdn.pixabay.com/photo/2019/03/05/02/03/golf-course-background-4035417_1280.png);
-  background-position: 30%;
+  // background: url(https://cdn.pixabay.com/photo/2019/03/05/02/03/golf-course-background-4035417_1280.png);
+  // background-position: 30%;
+  // background: url(https://image.freepik.com/free-vector/golf-course-background-flat-style_23-2147784037.jpg);
+  // background-position: 87%;
+  background: url(https://image.freepik.com/free-vector/golf-course-background-flat-style_23-2147769730.jpg);
+  background-position: 78%;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -41,7 +42,7 @@ header {
 
 nav {
   padding-left: 1rem;
-  font: 18px / 1 sans-serif;
+  font: 20px / 1 sans-serif;
 }
 
 button {
@@ -113,6 +114,7 @@ h4 {
   text-align: center;
   margin: 0.7rem;
   grid-gap: 1rem;
+  list-style-type: none;
 }
 
 ul {

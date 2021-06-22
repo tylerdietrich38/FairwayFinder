@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
+import { Link } from 'react-router-dom'
 
 export function Home() {
   return (
@@ -11,9 +12,15 @@ export function Home() {
             <img src={logo} alt="Logo" />
           </ul>
           <nav>
-            <a href="/">
-              <i className="home-header"></i> Home | Golf Courses | About
-            </a>
+            <div className="grid-row">
+              <Link to="/">
+                <li>Home</li>
+              </Link>
+              <li>|</li>
+              <Link to="/courses">
+                <li>Golf Courses</li>
+              </Link>
+            </div>
           </nav>
         </header>
         <main className="main-sign">
