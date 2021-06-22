@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../Images/Logo.png'
-import TacoCourse from '../Images/TacoCourse.jpg'
 
 export function NewCourse() {
   return (
@@ -33,7 +32,7 @@ export function NewCourse() {
               <textarea name="address"></textarea>
             </p>
             <p className="form-input">
-              <label htmlFor="name">Telephone</label>
+              <label htmlFor="name">Website</label>
               <input type="tel" name="telephone" />
             </p>
             <p className="form-input">

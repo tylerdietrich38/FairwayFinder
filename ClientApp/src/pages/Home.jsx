@@ -17,8 +17,11 @@ export function Home() {
             <p>Welcome back, Bob!</p>
           </nav>
         </header>
-        <main className="main-home">
+        <main className="main-sign">
           <h2>Golf Courses near you!</h2>
+          <a href="/GolfCourse">
+            <h4>Golf Course Name</h4>
+          </a>
           <ul className="Golfpic">
             <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
           </ul>
@@ -30,6 +33,9 @@ export function Home() {
               reprehenderit perferendis! Fuga aspernatur aut minus.
             </p>
           </div>
+          <a href="/GolfCourse">
+            <h4>Golf Course Name</h4>
+          </a>
           <ul className="Golfpic">
             <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
           </ul>
