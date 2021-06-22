@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
+import { useHistory } from 'react-router'
 
 export function NewCourse() {
   const [newCourse, setNewCourse] = useState({
@@ -8,6 +9,8 @@ export function NewCourse() {
     address: 'string',
     website: 'string',
   })
+
+  const history = useHistory()
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -27,8 +30,8 @@ export function NewCourse() {
       body: JSON.stringify(newCourse),
     })
 
-    if (response.ok) {
-      console.log('it worked')
+    if (response.code === 201) {
+      history.push('/')
     }
   }
 
