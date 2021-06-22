@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FairwayFinder.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210622004458_CreateGolfCourse")]
+    [Migration("20210622131617_CreateGolfCourse")]
     partial class CreateGolfCourse
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
