@@ -3,6 +3,14 @@ import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link } from 'react-router-dom'
 
+// function SingleGolfCourse(props) {
+//   return (
+//     <Link to={`/courses/${props.GolfCourses.id}`}>
+//       <h4>{props.GolfCourse.name}</h4>
+//     </Link>
+//   )
+// }
+
 export function GolfCourses() {
   const [GolfCourses, setGolfCourses] = useState([])
   const [filterText, setFilterText] = useState('')
@@ -28,7 +36,7 @@ export function GolfCourses() {
     [filterText]
   )
 
-  const filter = 'r'
+  const filter = ''
 
   const matchingGolfCourses = GolfCourses.filter((GolfCourse) =>
     GolfCourse.name.includes(filter)
@@ -71,9 +79,10 @@ export function GolfCourses() {
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li key={GolfCourse.id}>
-                <a href="/GolfCourse">
+                {/* <SingleGolfCourse key={GolfCourse.id} GolfCourse={GolfCourse} /> */}
+                <Link to={`/courses/${GolfCourse.id}`}>
                   <h4>{GolfCourse.name}</h4>
-                </a>
+                </Link>
                 <section className="Golfpic">
                   <img
                     src={TacoCourse}
@@ -93,6 +102,15 @@ export function GolfCourses() {
         <div className="container">
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>
+            <div className="grid-row">
+              <a href="https://github.com/tylerdietrich38">
+                <li>Github</li>
+              </a>
+              <li>|</li>
+              <a href="https://www.linkedin.com/in/tylerdietrich38/">
+                <li>Linkedin</li>
+              </a>
+            </div>
           </footer>
         </div>
       </body>

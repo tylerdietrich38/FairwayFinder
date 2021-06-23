@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export function GolfCourse() {
-  const [GolfCourses, setGolfCourses] = useState([])
+  const params = useParams()
+  const id = params.id
 
-  useEffect(function () {
-    async function loadGolfCourses() {
-      const response = await fetch('/api/GolfCourses')
+  const [GolfCourse, setGolfCourse] = useState({
+    name: '',
+    description: '',
+    address: '',
+    website: '',
+  })
 
-      if (response.ok) {
-        const json = await response.json()
+  useState(() => {
+    const fetchGolfCourse = async () => {
+      const response = await fetch(`/api/GolfCourses/${id}`)
+      const apiData = await response.json()
 
-        setGolfCourses(json)
-      }
+      setGolfCourse(apiData)
     }
-    loadGolfCourses()
-  }, [])
+
+    fetchGolfCourse()
+  }, [id])
 
   return (
     <>
@@ -40,37 +46,40 @@ export function GolfCourse() {
         </header>
         <main className="main-sign">
           <ul>
-            {GolfCourses.map((GolfCourse) => (
-              <li>
-                <a href="/GolfCourse">
-                  <h4>{GolfCourse.name}</h4>
-                </a>
-                <section className="Golfpic">
-                  <img
-                    src={TacoCourse}
-                    alt="Golf Course"
-                    height="140"
-                    width="230"
-                  />
-                </section>
-                <div className="home-info">
-                  <p>{GolfCourse.description}</p>
+            <li>
+              <h4>{GolfCourse.name}</h4>
+              <section className="Golfpic">
+                <img
+                  src={TacoCourse}
+                  alt="Golf Course"
+                  height="140"
+                  width="230"
+                />
+              </section>
+              <div className="home-info">
+                <p>{GolfCourse.description}</p>
 
-                  <p>Address: {GolfCourse.address}</p>
+                <p>Address: {GolfCourse.address}</p>
 
+                <a href={GolfCourse.website}>
                   <p>{GolfCourse.website}</p>
-
-                  {/* <p>{GolfCourse.website}</p> */}
-                </div>
-              </li>
-            ))}
+                </a>
+              </div>
+            </li>
           </ul>
         </main>
-        <div className="container">
-          <footer>
-            <p>Built with 🤘 in Bradenton, Florida.</p>
-          </footer>
-        </div>
+        <footer>
+          <p>Built with 🤘 in Bradenton, Florida.</p>
+          <div className="grid-row">
+            <a href="https://github.com/tylerdietrich38">
+              <li>Github</li>
+            </a>
+            <li>|</li>
+            <a href="https://www.linkedin.com/in/tylerdietrich38/">
+              <li>Linkedin</li>
+            </a>
+          </div>
+        </footer>
       </body>
     </>
   )

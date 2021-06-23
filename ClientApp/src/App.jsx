@@ -17,7 +17,7 @@ export function App() {
       <Route exact path="/new">
         <NewCourse />
       </Route>
-      <Route exact path="/course">
+      <Route exact path="/courses/:id">
         <GolfCourse />
       </Route>
       <Route exact path="/courses">

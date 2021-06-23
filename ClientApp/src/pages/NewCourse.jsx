@@ -80,6 +80,7 @@ export function NewCourse() {
               <label>Address</label>
               <textarea
                 name="address"
+                placeholder="Street Address, City, State"
                 value={newCourse.address}
                 onChange={handleStringFieldChange}
               ></textarea>
@@ -87,8 +88,9 @@ export function NewCourse() {
             <p className="form-input">
               <label>Website</label>
               <input
-                type="tel"
-                name="telephone"
+                type="text"
+                placeholder="Street Address, City, State"
+                name="website"
                 value={newCourse.website}
                 onChange={handleStringFieldChange}
               />
@@ -98,12 +100,23 @@ export function NewCourse() {
               <input type="file" name="picture" />
             </p>
             <p>
-              <input type="submit" value="Submit" />
+              <Link to="/courses">
+                <input type="submit" value="Submit" />
+              </Link>
             </p>
           </form>
         </main>
         <footer>
           <p>Built with 🤘 in Bradenton, Florida.</p>
+          <div className="grid-row">
+            <a href="https://github.com/tylerdietrich38">
+              <li>Github</li>
+            </a>
+            <li>|</li>
+            <a href="https://www.linkedin.com/in/tylerdietrich38/">
+              <li>Linkedin</li>
+            </a>
+          </div>
         </footer>
       </body>
     </>

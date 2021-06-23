@@ -7,5 +7,6 @@ namespace FairwayFinder.Models
         public string Description { get; set; }
         public string Address { get; set; }
         public string Website { get; set; }
+
     }
 }

@@ -57,6 +57,15 @@ export function Home() {
         <div className="container">
           <footer>
             <p>Built with 🤘 in Bradenton, Florida.</p>
+            <div className="grid-row">
+              <a href="https://github.com/tylerdietrich38">
+                <li>Github</li>
+              </a>
+              <li>|</li>
+              <a href="https://www.linkedin.com/in/tylerdietrich38/">
+                <li>Linkedin</li>
+              </a>
+            </div>
           </footer>
         </div>
       </body>
