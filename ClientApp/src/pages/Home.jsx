@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link } from 'react-router-dom'
+import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
 
 export function Home() {
+  const [viewport, setViewport] = useState({
+    latitude: 27.77101804911986,
+    longitude: -82.66090611749074,
+    zoom: 9.8,
+  })
+
   return (
     <>
       <body>
@@ -25,25 +32,21 @@ export function Home() {
         </header>
         <main className="main-sign">
           <h2>Golf Courses near you!</h2>
-          <a href="/GolfCourse">
+          {/* <a href="/GolfCourse">
             <h4>Golf Course Name</h4>
-          </a>
-          <ul className="Golfpic">
-            <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
-          </ul>
-          <div className="home-info">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              a? Voluptatibus quibusdam ratione ex minima corporis fugiat
-              accusamus, atque, magni laboriosam voluptate molestiae expedita,
-              reprehenderit perferendis! Fuga aspernatur aut minus.
-            </p>
-          </div>
-          <a href="/GolfCourse">
-            <h4>Golf Course Name</h4>
-          </a>
-          <ul className="Golfpic">
-            <img src={TacoCourse} alt="Golf Course" height="140" width="230" />
+          </a> */}
+          <ul className="golf-pic">
+            <ReactMapGL
+              {...viewport}
+              style={{ position: 'absolute' }}
+              width="100%"
+              height="100%"
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            >
+              <div style={{ position: 'absolute', left: 10 }}>
+                <NavigationControl />
+              </div>
+            </ReactMapGL>
           </ul>
           <div className="home-info">
             <p>
@@ -54,20 +57,18 @@ export function Home() {
             </p>
           </div>
         </main>
-        <div className="container">
-          <footer>
-            <p>Built with 🤘 in Bradenton, Florida.</p>
-            <div className="grid-row">
-              <a href="https://github.com/tylerdietrich38">
-                <li>Github</li>
-              </a>
-              <li>|</li>
-              <a href="https://www.linkedin.com/in/tylerdietrich38/">
-                <li>Linkedin</li>
-              </a>
-            </div>
-          </footer>
-        </div>
+        <footer>
+          <p>Built with 🤘 in Bradenton, Florida.</p>
+          <div className="grid-row">
+            <a href="https://github.com/tylerdietrich38">
+              <li>Github</li>
+            </a>
+            <li>|</li>
+            <a href="https://www.linkedin.com/in/tylerdietrich38/">
+              <li>Linkedin</li>
+            </a>
+          </div>
+        </footer>
       </body>
     </>
   )
