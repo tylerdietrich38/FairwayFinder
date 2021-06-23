@@ -6,8 +6,8 @@ import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
 
 export function Home() {
   const [viewport, setViewport] = useState({
-    latitude: 27.77101804911986,
-    longitude: -82.66090611749074,
+    latitude: 27.4373,
+    longitude: -82.3611,
     zoom: 9.8,
   })
 
@@ -46,16 +46,28 @@ export function Home() {
               <div style={{ position: 'absolute', left: 10 }}>
                 <NavigationControl />
               </div>
+
+              {GolfCourses.map((GolfCourse) => (
+                <Marker
+                  key={GolfCourse.id}
+                  latitude={GolfCourse.latitude}
+                  longitude={GolfCourse.longitude}
+                >
+                  <span role="img" aria-label="taco">
+                    ⛳️
+                  </span>
+                </Marker>
+              ))}
             </ReactMapGL>
           </ul>
-          <div className="home-info">
+          {/* <div className="home-info">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
               a? Voluptatibus quibusdam ratione ex minima corporis fugiat
               accusamus, atque, magni laboriosam voluptate molestiae expedita,
               reprehenderit perferendis! Fuga aspernatur aut minus.
             </p>
-          </div>
+          </div> */}
         </main>
         <footer>
           <p>Built with 🤘 in Bradenton, Florida.</p>
