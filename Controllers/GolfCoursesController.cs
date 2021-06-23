@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FairwayFinder.Models;
+using Microsoft.Extensions.Configuration;
+using Geocoding.Microsoft;
 
 namespace FairwayFinder.Controllers
 {
@@ -18,12 +20,14 @@ namespace FairwayFinder.Controllers
     {
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
+        private readonly string BING_MAPS_KEY;
 
         // Constructor that recives a reference to your database context
         // and stores it in _context for you to use in your API methods
-        public GolfCoursesController(DatabaseContext context)
+        public GolfCoursesController(DatabaseContext context, IConfiguration config)
         {
             _context = context;
+            BING_MAPS_KEY = config["BING_MAPS_KEY"];
         }
 
         // GET: api/GolfCourses
@@ -131,6 +135,23 @@ namespace FairwayFinder.Controllers
         [HttpPost]
         public async Task<ActionResult<GolfCourse>> PostGolfCourse(GolfCourse golfCourse)
         {
+
+            // Create a new geocoder
+            var geocoder = new BingMapsGeocoder(BING_MAPS_KEY);
+
+            // Request this address to be geocoded.
+            var geocodedAddresses = await geocoder.GeocodeAsync(golfCourse.Address);
+
+            // ... and pick out the best address sorted by the confidence level
+            var bestGeocodedAddress = geocodedAddresses.OrderBy(address => address.Confidence).LastOrDefault();
+
+            // If we have a best geocoded address, use the latitude and longitude from that result
+            if (bestGeocodedAddress != null)
+            {
+                golfCourse.Latitude = bestGeocodedAddress.Coordinates.Latitude;
+                golfCourse.Longitude = bestGeocodedAddress.Coordinates.Longitude;
+            }
+
             // Indicate to the database context we want to add this new record
             _context.GolfCourses.Add(golfCourse);
             await _context.SaveChangesAsync();
