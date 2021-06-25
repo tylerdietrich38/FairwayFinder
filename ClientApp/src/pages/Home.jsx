@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
 
 export function Home() {
+  const [GolfCourses, setGolfCourses] = useState([])
   const [viewport, setViewport] = useState({
     latitude: 27.4373,
     longitude: -82.3611,
