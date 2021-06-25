@@ -52,6 +52,10 @@ export function NewCourse() {
               <Link to="/courses">
                 <li>Golf Courses</li>
               </Link>
+              <li>|</li>
+              <Link to="/login">
+                <li>Login</li>
+              </Link>
             </div>
           </nav>
         </header>
