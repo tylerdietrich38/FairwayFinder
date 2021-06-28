@@ -1,8 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export function SignUp() {
+  const history = useHistory()
+  const [errorMessage, setErrorMessage] = useState()
+
+  const [newUser, setNewUser] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+  })
+
+  function handleStringFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedUser = { ...newUser, [fieldName]: value }
+
+    setNewUser(updatedUser)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch('/api/Users', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newUser),
+    })
+    const apiResponse = await response.json()
+
+    if (apiResponse.status === 400) {
+      setErrorMessage(Object.values(apiResponse.errors).join(' '))
+    } else {
+      history.push('/')
+    }
+  }
+
   return (
     <>
       <body>
@@ -20,7 +56,7 @@ export function SignUp() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/login">
+              <Link to="/signin">
                 <li>Sign In/Sign Up</li>
               </Link>
             </div>
@@ -34,8 +70,8 @@ export function SignUp() {
             <h2>Sign In</h2>
             <form action="#">
               <p className="form-input">
-                <label htmlFor="name">Username</label>
-                <input type="text" name="name" />
+                <label htmlFor="name">Full Name</label>
+                <input type="text" name="fullName" />
               </p>
               <p className="form-input">
                 <label htmlFor="password">Password</label>
@@ -47,18 +83,34 @@ export function SignUp() {
             </form>
             <h2 className="sign-up">Sign Up</h2>
           </nav>
-          <form action="#">
+          <form onSubmit={handleFormSubmit}>
+            {errorMessage ? <p>{errorMessage}</p> : null}
             <p className="form-input">
               <label htmlFor="name">Email</label>
-              <input type="email" name="email" />
+              <input
+                type="email"
+                name="email"
+                value={newUser.email}
+                onChange={handleStringFieldChange}
+              />
             </p>
             <p className="form-input">
-              <label htmlFor="name">Username</label>
-              <input type="text" name="name" />
+              <label htmlFor="name">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={newUser.fullName}
+                onChange={handleStringFieldChange}
+              />
             </p>
             <p className="form-input">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" />
+              <input
+                type="password"
+                name="password"
+                value={newUser.password}
+                onChange={handleStringFieldChange}
+              />
             </p>
             <p>
               <input type="submit" value="Sign Up" />

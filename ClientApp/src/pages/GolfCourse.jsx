@@ -42,7 +42,7 @@ export function GolfCourse() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/login">
+              <Link to="/signin">
                 <li>Sign In/Sign Up</li>
               </Link>
             </div>

@@ -32,7 +32,7 @@ export function NewCourse() {
     })
 
     if (response.code === 201) {
-      history.push('/')
+      history.push('/GolfCourses')
     }
   }
 
@@ -53,7 +53,7 @@ export function NewCourse() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/login">
+              <Link to="/signin">
                 <li>Sign In/Sign Up</li>
               </Link>
             </div>

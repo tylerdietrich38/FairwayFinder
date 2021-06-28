@@ -23,7 +23,7 @@ export function App() {
       <Route exact path="/courses">
         <GolfCourses />
       </Route>
-      <Route exact path="/login">
+      <Route exact path="/signin">
         <SignUp />
       </Route>
     </Switch>
