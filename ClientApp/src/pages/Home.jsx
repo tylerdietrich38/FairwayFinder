@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
-import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link } from 'react-router-dom'
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
+import { GolfCourse } from './GolfCourse'
+import { SingleGolfCourse } from '../components/SingleGolfCourse'
 
 export function Home() {
   const [GolfCourses, setGolfCourses] = useState([])
@@ -43,6 +44,7 @@ export function Home() {
           <ul className="golf-pic">
             <ReactMapGL
               {...viewport}
+              onViewportChange={setViewport}
               style={{ position: 'absolute' }}
               width="100%"
               height="100%"
@@ -58,13 +60,18 @@ export function Home() {
                   latitude={GolfCourse.latitude}
                   longitude={GolfCourse.longitude}
                 >
-                  <span role="img" aria-label="taco">
+                  <span role="img" aria-label="golf">
                     ⛳️
                   </span>
                 </Marker>
               ))}
             </ReactMapGL>
           </ul>
+          <div className="results">
+            {GolfCourses.map((GolfCourse) => (
+              <SingleGolfCourse key={GolfCourse.id} GolfCourse={GolfCourse} />
+            ))}
+          </div>
           {/* <div className="home-info">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
