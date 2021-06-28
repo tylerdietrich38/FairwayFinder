@@ -81,6 +81,7 @@ export function Home() {
                   closeOnClick={false}
                   onClose={() => setSelectedGolfCourse(null)}
                   offsetTop={-5}
+                  offsetLeft={7}
                 >
                   <div>
                     <Link to={`/courses/${selectedGolfCourse.id}`}>

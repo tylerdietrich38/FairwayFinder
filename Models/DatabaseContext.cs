@@ -15,6 +15,8 @@ namespace FairwayFinder.Models
 
         // Add database tables here
         public DbSet<GolfCourse> GolfCourses { get; set; }
+        // Tell the context about the User collection/table
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
