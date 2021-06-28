@@ -33,7 +33,7 @@ export function GolfCourse() {
             <img src={logo} alt="Logo" />
           </section>
           <nav>
-            <div className="grid-row">
+            <div className="header-row">
               <Link to="/">
                 <li>Home</li>
               </Link>
@@ -43,7 +43,7 @@ export function GolfCourse() {
               </Link>
               <li>|</li>
               <Link to="/login">
-                <li>Login</li>
+                <li>Sign In/Sign Up</li>
               </Link>
             </div>
           </nav>

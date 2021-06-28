@@ -44,7 +44,7 @@ export function NewCourse() {
             <img src={logo} alt="Logo" />
           </ul>
           <nav>
-            <div className="grid-row">
+            <div className="header-row">
               <Link to="/">
                 <li>Home</li>
               </Link>
@@ -54,7 +54,7 @@ export function NewCourse() {
               </Link>
               <li>|</li>
               <Link to="/login">
-                <li>Login</li>
+                <li>Sign In/Sign Up</li>
               </Link>
             </div>
           </nav>

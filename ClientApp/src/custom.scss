@@ -38,6 +38,15 @@ header {
   border-color: rgb(146, 146, 146);
 }
 
+.header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.7rem;
+  grid-gap: 1rem;
+  list-style-type: none;
+}
+
 .home-header {
   color: black;
 }
@@ -171,6 +180,13 @@ span {
 .container {
   position: relative;
   min-height: 11vh;
+}
+
+.results {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.4rem;
+  margin: 1rem;
 }
 
 footer {

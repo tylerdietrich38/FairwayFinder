@@ -21,7 +21,7 @@ export function Home() {
             <img src={logo} alt="Logo" />
           </ul>
           <nav>
-            <div className="grid-row">
+            <div className="header-row">
               <Link to="/">
                 <li>Home</li>
               </Link>
@@ -31,7 +31,7 @@ export function Home() {
               </Link>
               <li>|</li>
               <Link to="/login">
-                <li>Login</li>
+                <li>Sign In/Sign Up</li>
               </Link>
             </div>
           </nav>
@@ -50,7 +50,7 @@ export function Home() {
               height="100%"
               mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             >
-              <div style={{ position: 'absolute', left: 10 }}>
+              <div style={{ position: 'absolute', left: 10, top: 10 }}>
                 <NavigationControl />
               </div>
 
@@ -72,14 +72,6 @@ export function Home() {
               <SingleGolfCourse key={GolfCourse.id} GolfCourse={GolfCourse} />
             ))}
           </div>
-          {/* <div className="home-info">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              a? Voluptatibus quibusdam ratione ex minima corporis fugiat
-              accusamus, atque, magni laboriosam voluptate molestiae expedita,
-              reprehenderit perferendis! Fuga aspernatur aut minus.
-            </p>
-          </div> */}
         </main>
         <footer>
           <p>Built with 🤘 in Bradenton, Florida.</p>
