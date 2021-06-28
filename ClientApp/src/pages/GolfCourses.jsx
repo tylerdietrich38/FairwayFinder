@@ -83,7 +83,6 @@ export function GolfCourses() {
           <ul>
             {GolfCourses.map((GolfCourse) => (
               <li key={GolfCourse.id}>
-                {/* <SingleGolfCourse key={GolfCourse.id} GolfCourse={GolfCourse} /> */}
                 <Link to={`/courses/${GolfCourse.id}`}>
                   <h4>{GolfCourse.name}</h4>
                 </Link>

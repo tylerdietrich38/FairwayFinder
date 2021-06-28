@@ -1,17 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../Images/Logo.png'
 import { Link } from 'react-router-dom'
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
-import { GolfCourse } from './GolfCourse'
-import { SingleGolfCourse } from '../components/SingleGolfCourse'
 
 export function Home() {
   const [GolfCourses, setGolfCourses] = useState([])
+  const [filterText, setFilterText] = useState('')
   const [viewport, setViewport] = useState({
     latitude: 27.4373,
     longitude: -82.3611,
     zoom: 9.8,
   })
+
+  const [selectedGolfCourse, setSelectedGolfCourse] = useState(null)
+
+  useEffect(
+    function () {
+      async function loadGolfCourses() {
+        const url =
+          filterText.length === 0
+            ? '/api/GolfCourses'
+            : `/api/GolfCourses?filter=${filterText}`
+
+        const response = await fetch(url)
+
+        if (response.ok) {
+          const json = await response.json()
+
+          setGolfCourses(json)
+        }
+      }
+      loadGolfCourses()
+    },
+    [filterText]
+  )
 
   return (
     <>
@@ -37,10 +59,7 @@ export function Home() {
           </nav>
         </header>
         <main className="main-sign">
-          <h2>Golf Courses near you!</h2>
-          {/* <a href="/GolfCourse">
-            <h4>Golf Course Name</h4>
-          </a> */}
+          <h2>{GolfCourses.length} Golf Courses near you!</h2>
           <ul className="golf-pic">
             <ReactMapGL
               {...viewport}
@@ -54,24 +73,46 @@ export function Home() {
                 <NavigationControl />
               </div>
 
+              {selectedGolfCourse ? (
+                <Popup
+                  latitude={selectedGolfCourse.latitude}
+                  longitude={selectedGolfCourse.longitude}
+                  closeButton={true}
+                  closeOnClick={false}
+                  onClose={() => setSelectedGolfCourse(null)}
+                  offsetTop={-5}
+                >
+                  <div>
+                    <Link to={`/courses/${selectedGolfCourse.id}`}>
+                      <h4>{selectedGolfCourse.name}</h4>
+                    </Link>
+                    <p>{selectedGolfCourse.description}</p>
+                  </div>
+                </Popup>
+              ) : null}
+
               {GolfCourses.map((GolfCourse) => (
                 <Marker
                   key={GolfCourse.id}
                   latitude={GolfCourse.latitude}
                   longitude={GolfCourse.longitude}
                 >
-                  <span role="img" aria-label="golf">
+                  <span
+                    role="img"
+                    aria-label="golf"
+                    onClick={() => setSelectedGolfCourse(GolfCourse)}
+                  >
                     ⛳️
                   </span>
                 </Marker>
               ))}
             </ReactMapGL>
           </ul>
-          <div className="results">
+          {/* <div className="results">
             {GolfCourses.map((GolfCourse) => (
               <SingleGolfCourse key={GolfCourse.id} GolfCourse={GolfCourse} />
             ))}
-          </div>
+          </div> */}
         </main>
         <footer>
           <p>Built with 🤘 in Bradenton, Florida.</p>
