@@ -10,7 +10,7 @@ export function SignUp() {
   const [errorMessage, setErrorMessage] = useState()
 
   const [user, setUser] = useState({
-    email: '',
+    fullName: '',
     password: '',
   })
 
@@ -45,8 +45,8 @@ export function SignUp() {
   }
 
   const [newUser, setNewUser] = useState({
-    fullName: '',
     email: '',
+    fullName: '',
     password: '',
   })
 
@@ -147,7 +147,7 @@ export function SignUp() {
               <label htmlFor="name">Full Name</label>
               <input
                 type="text"
-                name="name"
+                name="fullName"
                 value={newUser.fullName}
                 onChange={handleStringFieldChange}
               />

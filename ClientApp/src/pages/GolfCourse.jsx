@@ -53,12 +53,13 @@ export function GolfCourse() {
             <li>
               <h4>{GolfCourse.name}</h4>
               <section className="Golfpic">
-                <img
-                  src={TacoCourse}
-                  alt="Golf Course"
-                  height="140"
-                  width="230"
-                />
+                {GolfCourse.photoURL ? (
+                  <img
+                    alt="Golf Course"
+                    width={200}
+                    src={GolfCourse.photoURL}
+                  />
+                ) : null}
               </section>
               <div className="home-info">
                 <p>{GolfCourse.description}</p>
