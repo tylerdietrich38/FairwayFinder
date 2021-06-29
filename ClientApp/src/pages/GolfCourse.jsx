@@ -48,7 +48,7 @@ export function GolfCourse() {
                   <li>Sign In/Sign Up</li>
                 </Link>
               )}
-              <li>Welcome, {user.fullName}</li>
+              {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>
           </nav>
         </header>
