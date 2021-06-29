@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 
 export function NewCourse() {
   const [newCourse, setNewCourse] = useState({
-    name: 'string',
-    description: 'string',
-    address: 'string',
-    website: 'string',
+    name: '',
+    description: '',
+    address: '',
+    website: '',
   })
 
   const history = useHistory()
@@ -93,7 +93,7 @@ export function NewCourse() {
               <label>Website</label>
               <input
                 type="text"
-                placeholder="Street Address, City, State"
+                placeholder="URL"
                 name="website"
                 value={newCourse.website}
                 onChange={handleStringFieldChange}
@@ -104,9 +104,7 @@ export function NewCourse() {
               <input type="file" name="picture" />
             </p>
             <p>
-              <Link to="/courses">
-                <input type="submit" value="Submit" />
-              </Link>
+              <input type="submit" value="Submit" />
             </p>
           </form>
         </main>
