@@ -31,14 +31,14 @@ namespace FairwayFinder.Controllers
 
         public class LoginUser
         {
-            public string Email { get; set; }
+            public string FullName { get; set; }
             public string Password { get; set; }
         }
 
         [HttpPost]
         public async Task<ActionResult> Login(LoginUser loginUser)
         {
-            var foundUser = await _context.Users.FirstOrDefaultAsync(user => user.Email == loginUser.Email);
+            var foundUser = await _context.Users.FirstOrDefaultAsync(user => user.FullName == loginUser.FullName);
 
             if (foundUser != null && foundUser.IsValidPassword(loginUser.Password))
             {

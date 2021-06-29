@@ -177,7 +177,7 @@ export function NewCourse() {
             </p>
             {newCourse.photoURL ? (
               <p>
-                <img alt="Golf Course" src={newCourse.photoURL} />
+                <img alt="Golf Course" width={200} src={newCourse.photoURL} />
               </p>
             ) : null}
 
