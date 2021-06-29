@@ -3,7 +3,7 @@ import logo from '../Images/Logo.png'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { recordAuthentication } from '../auth'
-import { isLoggedIn } from './auth'
+import { isLoggedIn } from '../auth'
 
 export function SignUp() {
   const history = useHistory()
@@ -14,7 +14,7 @@ export function SignUp() {
     password: '',
   })
 
-  function handleStringFieldChange(event) {
+  function handleStringFieldChanges(event) {
     const value = event.target.value
     const fieldName = event.target.name
 
@@ -23,7 +23,7 @@ export function SignUp() {
     setUser(updatedUser)
   }
 
-  async function handleFormSubmit(event) {
+  async function handleFormSubmits(event) {
     event.preventDefault()
 
     const response = await fetch('/api/Sessions', {
@@ -107,7 +107,7 @@ export function SignUp() {
               <i className="fa fa-home"></i>
             </a>
             <h2>Sign In</h2>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmits}>
               {errorMessage ? <p>{errorMessage}</p> : null}
               <p className="form-input">
                 <label htmlFor="name">Full Name</label>
@@ -115,7 +115,7 @@ export function SignUp() {
                   type="text"
                   name="fullName"
                   value={user.fullName}
-                  onChange={handleStringFieldChange}
+                  onChange={handleStringFieldChanges}
                 />
               </p>
               <p className="form-input">
@@ -124,7 +124,7 @@ export function SignUp() {
                   type="password"
                   name="password"
                   value={user.password}
-                  onChange={handleStringFieldChange}
+                  onChange={handleStringFieldChanges}
                 />
               </p>
               <p>
@@ -134,7 +134,6 @@ export function SignUp() {
             <h2 className="sign-up">Sign Up</h2>
           </nav>
           <form onSubmit={handleFormSubmit}>
-            {errorMessage ? <p>{errorMessage}</p> : null}
             <p className="form-input">
               <label htmlFor="name">Email</label>
               <input
