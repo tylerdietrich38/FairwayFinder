@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
-import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link, useParams } from 'react-router-dom'
+import { getUser, authHeader, isLoggedIn } from '../auth'
 
 export function GolfCourse() {
+  const user = getUser()
   const params = useParams()
   const id = params.id
 
@@ -42,9 +43,12 @@ export function GolfCourse() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/signin">
-                <li>Sign In/Sign Up</li>
-              </Link>
+              {isLoggedIn() ? null : (
+                <Link to="/signin">
+                  <li>Sign In/Sign Up</li>
+                </Link>
+              )}
+              <li>Welcome, {user.fullName}</li>
             </div>
           </nav>
         </header>

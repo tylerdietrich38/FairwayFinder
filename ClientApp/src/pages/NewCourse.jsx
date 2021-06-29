@@ -3,7 +3,7 @@ import logo from '../Images/Logo.png'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDropzone } from 'react-dropzone'
-import { authHeader } from '../auth'
+import { getUser, authHeader, isLoggedIn } from '../auth'
 
 export function NewCourse() {
   const [newCourse, setNewCourse] = useState({
@@ -13,6 +13,7 @@ export function NewCourse() {
     website: '',
     photoURL: '',
   })
+  const user = getUser()
   const [errorMessage, setErrorMessage] = useState('')
   const [isUploading, setIsUploading] = useState(false)
   const history = useHistory()
@@ -128,9 +129,12 @@ export function NewCourse() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/signin">
-                <li>Sign In/Sign Up</li>
-              </Link>
+              {isLoggedIn() ? null : (
+                <Link to="/signin">
+                  <li>Sign In/Sign Up</li>
+                </Link>
+              )}
+              <li>Welcome, {user.fullName}</li>
             </div>
           </nav>
         </header>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link } from 'react-router-dom'
+import { getUser, isLoggedIn } from '../auth'
 
 // function SingleGolfCourse(props) {
 //   return (
@@ -12,6 +13,7 @@ import { Link } from 'react-router-dom'
 // }
 
 export function GolfCourses() {
+  const user = getUser()
   const [GolfCourses, setGolfCourses] = useState([])
   const [filterText, setFilterText] = useState('')
 
@@ -58,9 +60,12 @@ export function GolfCourses() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/signin">
-                <li>Sign In/Sign Up</li>
-              </Link>
+              {isLoggedIn() ? null : (
+                <Link to="/signin">
+                  <li>Sign In/Sign Up</li>
+                </Link>
+              )}
+              <li>Welcome, {user.fullName}</li>
             </div>
           </nav>
         </header>
@@ -87,12 +92,13 @@ export function GolfCourses() {
                   <h4>{GolfCourse.name}</h4>
                 </Link>
                 <section className="Golfpic">
-                  <img
-                    src={TacoCourse}
-                    alt="Golf Course"
-                    height="140"
-                    width="230"
-                  />
+                  {GolfCourse.photoURL ? (
+                    <img
+                      alt="Golf Course"
+                      width={200}
+                      src={GolfCourse.photoURL}
+                    />
+                  ) : null}
                 </section>
                 <div className="home-info">
                   <p>{GolfCourse.description}</p>

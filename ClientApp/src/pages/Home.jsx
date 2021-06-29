@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import logo from '../Images/Logo.png'
 import { Link } from 'react-router-dom'
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
+import { getUser, isLoggedIn } from '../auth'
 
 export function Home() {
+  const user = getUser()
   const [GolfCourses, setGolfCourses] = useState([])
   const [filterText, setFilterText] = useState('')
   const [viewport, setViewport] = useState({
@@ -52,9 +54,12 @@ export function Home() {
                 <li>Golf Courses</li>
               </Link>
               <li>|</li>
-              <Link to="/signin">
-                <li>Sign In/Sign Up</li>
-              </Link>
+              {isLoggedIn() ? null : (
+                <Link to="/signin">
+                  <li>Sign In/Sign Up</li>
+                </Link>
+              )}
+              <li>Welcome, {user.fullName}</li>
             </div>
           </nav>
         </header>
