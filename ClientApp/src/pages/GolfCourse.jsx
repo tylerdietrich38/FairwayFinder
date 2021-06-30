@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import { getUser, authHeader, isLoggedIn, logout } from '../auth'
 
 export function GolfCourse() {
+  const history = useHistory()
+
   const user = getUser()
+
   const params = useParams()
   const id = params.id
 
@@ -30,6 +33,19 @@ export function GolfCourse() {
     logout()
 
     window.location.assign('/')
+  }
+
+  async function handleDelete(event) {
+    event.preventDefault()
+
+    const response = await fetch(`/api/Restaurants/${id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json', ...authHeader() },
+    })
+
+    if (response.status === 200 || response.status === 204) {
+      history.push('/')
+    }
   }
 
   return (
@@ -85,6 +101,9 @@ export function GolfCourse() {
                   <p>{GolfCourse.website}</p>
                 </a>
               </div>
+              <p>
+                <button onClick={handleDelete}>Delete</button>
+              </p>
             </li>
           </ul>
         </main>
