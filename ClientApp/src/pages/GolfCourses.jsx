@@ -97,7 +97,7 @@ export function GolfCourses() {
               />
             </form>
           </div>
-          <ul>
+          <ul className="golf-scroll">
             {GolfCourses.map((GolfCourse) => (
               <li key={GolfCourse.id}>
                 <Link to={`/courses/${GolfCourse.id}`}>
