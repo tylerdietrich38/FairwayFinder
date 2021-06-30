@@ -26,11 +26,11 @@ body {
 header {
   height: 5rem;
   padding-top: 0.5rem;
-  background-color: transparent;
   background-color: rgb(245, 245, 240);
   color: black;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
   border-bottom: solid;
   border-width: 1px;
@@ -254,10 +254,10 @@ a:visited {
   //   outline: 1px solid slategrey;
   // }
 
-  .golf-scroll {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
+  // .golf-scroll {
+  //   overflow-x: hidden;
+  //   overflow-y: scroll;
+  // }
 
   footer {
     font: 17px / 1 'Avenir Black', 'Arial Black', sans-serif;
