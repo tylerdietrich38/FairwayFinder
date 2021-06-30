@@ -112,6 +112,12 @@ export function NewCourse() {
     dropZoneMessage = 'Drop the files here ...'
   }
 
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
+
   return (
     <>
       <body>
@@ -135,15 +141,9 @@ export function NewCourse() {
                 </Link>
               )}
               {isLoggedIn() ? (
-                <Link
-                  to="/"
-                  onClick={function () {
-                    logout()
-                    window.location.assign('/')
-                  }}
-                >
-                  <li>Sign out</li>
-                </Link>
+                <span className="link" onClick={handleLogout}>
+                  Sign out
+                </span>
               ) : null}
               {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>

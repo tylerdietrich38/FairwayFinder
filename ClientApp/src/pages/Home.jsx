@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from '../Images/Logo.png'
 import { Link } from 'react-router-dom'
 import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl'
-import { getUser, isLoggedIn } from '../auth'
+import { getUser, isLoggedIn, logout } from '../auth'
 
 export function Home() {
   const user = getUser()
@@ -37,6 +37,12 @@ export function Home() {
     [filterText]
   )
 
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
+
   return (
     <>
       <body>
@@ -59,6 +65,11 @@ export function Home() {
                   <li>Sign In/Sign Up</li>
                 </Link>
               )}
+              {isLoggedIn() ? (
+                <span className="link" onClick={handleLogout}>
+                  Sign out
+                </span>
+              ) : null}
               {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>
           </nav>

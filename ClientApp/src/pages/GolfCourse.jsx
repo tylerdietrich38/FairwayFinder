@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../Images/Logo.png'
 import { Link, useParams } from 'react-router-dom'
-import { getUser, authHeader, isLoggedIn } from '../auth'
+import { getUser, authHeader, isLoggedIn, logout } from '../auth'
 
 export function GolfCourse() {
   const user = getUser()
@@ -26,6 +26,12 @@ export function GolfCourse() {
     fetchGolfCourse()
   }, [id])
 
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
+
   return (
     <>
       <body>
@@ -48,6 +54,11 @@ export function GolfCourse() {
                   <li>Sign In/Sign Up</li>
                 </Link>
               )}
+              {isLoggedIn() ? (
+                <span className="link" onClick={handleLogout}>
+                  Sign out
+                </span>
+              ) : null}
               {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>
           </nav>

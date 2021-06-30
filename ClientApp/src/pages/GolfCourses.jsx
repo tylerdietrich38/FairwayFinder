@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '../Images/Logo.png'
 import TacoCourse from '../Images/TacoCourse.jpg'
 import { Link } from 'react-router-dom'
-import { getUser, isLoggedIn } from '../auth'
+import { getUser, isLoggedIn, logout } from '../auth'
 
 // function SingleGolfCourse(props) {
 //   return (
@@ -43,6 +43,13 @@ export function GolfCourses() {
   const matchingGolfCourses = GolfCourses.filter((GolfCourse) =>
     GolfCourse.name.includes(filter)
   )
+
+  function handleLogout() {
+    logout()
+
+    window.location.assign('/')
+  }
+
   return (
     <>
       <body>
@@ -65,6 +72,11 @@ export function GolfCourses() {
                   <li>Sign In/Sign Up</li>
                 </Link>
               )}
+              {isLoggedIn() ? (
+                <span className="link" onClick={handleLogout}>
+                  Sign out
+                </span>
+              ) : null}
               {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>
           </nav>
