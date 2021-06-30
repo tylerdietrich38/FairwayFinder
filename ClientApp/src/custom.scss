@@ -197,6 +197,10 @@ span {
   z-index: 1;
 }
 
+.mapboxgl-popup-content {
+  padding: 0;
+}
+
 a {
   color: green;
 }
@@ -205,6 +209,13 @@ a:visited {
   color: green;
   text-decoration: none;
   decoration: none;
+}
+
+.link {
+  color: green;
+  text-decoration: none;
+  decoration: none;
+  font: 20px / 1 'Avenir Black', 'Arial Black', sans-serif;
 }
 
 .file-drop-zone {
