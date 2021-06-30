@@ -38,7 +38,7 @@ export function GolfCourse() {
   async function handleDelete(event) {
     event.preventDefault()
 
-    const response = await fetch(`/api/Restaurants/${id}`, {
+    const response = await fetch(`/api/GolfCourses/${id}`, {
       method: 'DELETE',
       headers: { 'content-type': 'application/json', ...authHeader() },
     })

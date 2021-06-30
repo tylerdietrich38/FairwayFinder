@@ -15,12 +15,11 @@ body {
   // background: url(https://image.freepik.com/free-vector/golf-course-background-flat-style_23-2147769730.jpg);
   // background-position: 78% 78%;
   background: url(https://res.cloudinary.com/usga/image/upload/c_fill,dpr_3.0,g_face,q_70,w_450/v1/usga/images/course-care/ftgexpertsexplain/2019/19gri-hole15-fall-10-17-1540x866.jpg);
-  // background-position: 78% 78%;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: whitesmoke;
 }
 
