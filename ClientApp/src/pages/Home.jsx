@@ -11,7 +11,7 @@ export function Home() {
   const [viewport, setViewport] = useState({
     latitude: 27.4373,
     longitude: -82.3611,
-    zoom: 9.8,
+    zoom: 11,
   })
 
   const [selectedGolfCourse, setSelectedGolfCourse] = useState(null)

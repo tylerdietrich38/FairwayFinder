@@ -203,7 +203,7 @@ export function NewCourse() {
               </div>
             </div>
             <p>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" placeholder="Submit🏆" />
             </p>
           </form>
         </main>

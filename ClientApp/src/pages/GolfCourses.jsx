@@ -114,7 +114,6 @@ export function GolfCourses() {
                 </section>
                 <div className="home-info">
                   <p>{GolfCourse.description}</p>
-                  <p>Address: {GolfCourse.address}</p>
                 </div>
               </li>
             ))}
