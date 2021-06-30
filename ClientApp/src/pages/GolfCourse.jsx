@@ -71,7 +71,7 @@ export function GolfCourse() {
                 {GolfCourse.photoURL ? (
                   <img
                     alt="Golf Course"
-                    width={200}
+                    width={300}
                     src={GolfCourse.photoURL}
                   />
                 ) : null}
