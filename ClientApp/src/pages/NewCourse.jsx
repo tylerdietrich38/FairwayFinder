@@ -3,7 +3,7 @@ import logo from '../Images/Logo.png'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDropzone } from 'react-dropzone'
-import { getUser, authHeader, isLoggedIn } from '../auth'
+import { getUser, authHeader, isLoggedIn, logout } from '../auth'
 
 export function NewCourse() {
   const [newCourse, setNewCourse] = useState({
@@ -134,6 +134,17 @@ export function NewCourse() {
                   <li>Sign In/Sign Up</li>
                 </Link>
               )}
+              {isLoggedIn() ? (
+                <Link
+                  to="/"
+                  onClick={function () {
+                    logout()
+                    window.location.assign('/')
+                  }}
+                >
+                  <li>Sign out</li>
+                </Link>
+              ) : null}
               {isLoggedIn() ? <li>Welcome, {user.fullName}</li> : null}
             </div>
           </nav>
