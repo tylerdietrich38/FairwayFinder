@@ -9,9 +9,9 @@ export function Home() {
   const [GolfCourses, setGolfCourses] = useState([])
   const [filterText, setFilterText] = useState('')
   const [viewport, setViewport] = useState({
-    latitude: 27.4373,
-    longitude: -82.3611,
-    zoom: 11,
+    latitude: 28.0735,
+    longitude: -82.4374,
+    zoom: 10.4,
   })
 
   const [selectedGolfCourse, setSelectedGolfCourse] = useState(null)
