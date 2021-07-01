@@ -5,6 +5,7 @@ import { GolfCourse } from './pages/GolfCourse'
 import { GolfCourses } from './pages/GolfCourses'
 import { Home } from './pages/Home'
 import { SignUp } from './pages/SignUp'
+import { EditCourse } from './pages/EditCourse'
 
 import './custom.scss'
 
@@ -25,6 +26,9 @@ export function App() {
       </Route>
       <Route exact path="/signin">
         <SignUp />
+      </Route>
+      <Route exact path="/courses/:id/edit">
+        <EditCourse />
       </Route>
     </Switch>
   )

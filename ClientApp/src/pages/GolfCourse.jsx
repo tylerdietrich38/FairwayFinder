@@ -100,9 +100,16 @@ export function GolfCourse() {
                 <a href={GolfCourse.website}>
                   <p>{GolfCourse.website}</p>
                 </a>
-                <p>
-                  <button onClick={handleDelete}>Delete</button>
-                </p>
+                <div className="grid-row">
+                  <p>
+                    <Link className="button" to={`/courses/${id}/edit`}>
+                      <button>Edit</button>
+                    </Link>
+                  </p>
+                  <p>
+                    <button onClick={handleDelete}>Delete</button>
+                  </p>
+                </div>
               </div>
             </li>
           </ul>
