@@ -102,37 +102,35 @@ export function SignUp() {
           </nav>
         </header>
         <main className="main-sign">
-          <nav>
-            <a href="/">
-              <i className="fa fa-home"></i>
-            </a>
-            <h2>Sign In</h2>
-            <form onSubmit={handleFormSubmits}>
-              {errorMessage ? <p>{errorMessage}</p> : null}
-              <p className="form-input">
-                <label htmlFor="name">Full Name</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={user.fullName}
-                  onChange={handleStringFieldChanges}
-                />
-              </p>
-              <p className="form-input">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  value={user.password}
-                  onChange={handleStringFieldChanges}
-                />
-              </p>
-              <p>
-                <input type="submit" value="Sign In" />
-              </p>
-            </form>
-            <h2 className="sign-up">Sign Up</h2>
-          </nav>
+          <a href="/">
+            <i className="fa fa-home"></i>
+          </a>
+          <h2>Sign In</h2>
+          <form onSubmit={handleFormSubmits}>
+            {errorMessage ? <p>{errorMessage}</p> : null}
+            <p className="form-input">
+              <label htmlFor="name">Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                value={user.fullName}
+                onChange={handleStringFieldChanges}
+              />
+            </p>
+            <p className="form-input">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={handleStringFieldChanges}
+              />
+            </p>
+            <p>
+              <input type="submit" value="Sign In" />
+            </p>
+          </form>
+          <h2 className="sign-up">Sign Up</h2>
           <form onSubmit={handleFormSubmit}>
             <p className="form-input">
               <label htmlFor="name">Email</label>
