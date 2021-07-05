@@ -98,7 +98,7 @@ export function GolfCourse() {
                 <p>Address: {GolfCourse.address}</p>
 
                 <a href={GolfCourse.website}>
-                  <p>{GolfCourse.website}</p>
+                  <button>More Info</button>
                 </a>
                 <div className="grid-row">
                   <p>
